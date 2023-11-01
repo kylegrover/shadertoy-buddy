@@ -1,0 +1,133 @@
+body,
+a {
+    transition: all 0.15s ease;
+}
+
+body,
+html {
+    min-height: 100vh;
+}
+
+.uiButton {
+    color: #aaa;
+}
+
+.toybuddy-controls-container {
+    /* margin-top: 15px; */
+    display: flex;
+    justify-content: space-between;
+}
+.toybuddy-controls-container input {
+    flex: 1;
+}
+
+.toybuddy-controls-container.expanded {
+    flex-direction: column;
+}
+
+.toybuddy-controls-container .stb-header {
+    display: flex;
+    justify-items: flex-start;
+    align-items: center;
+}
+
+.toybuddy-controls-container:not(.expanded) .stb-header ~ *:not(.stb-footer),
+.toybuddy-controls-container:not(.expanded) .stb-header .expand-trigger + div {
+    display: none;
+}
+
+.formButton.formButton-extension,
+.formButtonSmall.formButton-extension {
+    background-color: #1967a0;
+    color: #fff;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+.formButton.formButton-extension {
+    padding-bottom: 5px;
+}
+
+.formButton.formButton-extension:hover,
+.formButtonSmall.formButton-extension:hover {
+    background-color: #0a80af;
+    color: #fff;
+    cursor: pointer;
+}
+
+.toyBuddyHeader {
+    position: fixed;
+    width: 100%;
+    height: 36px;
+    padding-bottom: 8px;
+    top: 42px;
+    left: 0;
+    display: flex;
+    background: rgba(0, 0, 0, 0.9);
+    box-sizing: border-box;
+    padding: 0 32px 4px;
+    align-items: center;
+    z-index: 1;
+}
+
+.toyBuddyHeader a {
+    background: rgb(25, 103, 160);
+    color: #eee;
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin-top: 0;
+    display: block;
+    margin-right: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.toyBuddyHeader a:hover {
+    color: #fff;
+}
+
+.toybuddy-controls-container .stb-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.toybuddy-controls-container .stb-footer .formButton-extension {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: auto;
+}
+
+.toybuddy-controls-container .stb-header > * {
+    margin-right: 10px;
+}
+
+body div#header {
+    overflow: visible;
+}
+
+.fullscreen-edit .container .block1 {
+    grid-row: span 2;
+    position: fixed;
+    z-index: 10;
+    right: 2em;
+    opacity: 0.7;
+}
+
+.toybuddy-prompt-container {
+    display: flex;
+}
+.toybuddy-prompt-container .stb-prompt-input {
+    flex: 1;
+    line-height: 1.5;
+    padding: 0.25em 0.5em;
+    margin-right: 0.5em;
+}
+.toybuddy-prompt-container .formButton {
+    min-width: auto;
+    padding: 0.25em 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

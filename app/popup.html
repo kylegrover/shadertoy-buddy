@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    
+        body {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 14px;
+            min-width: 320px;
+            background: #34495e;
+            color: #222;
+            border: 0;
+            outline: 0;
+            padding: 0;
+            margin: 0;
+        }
+
+        a {
+            color: rgb(255, 153, 34);
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul:after, .settings li:after {
+            clear: both;
+            display: block;
+            content: "";
+        }
+
+        h1 {
+            margin: 0;
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+        }
+
+        h1 b {
+            color: #fff;
+            font-size: 24px;
+            line-height: 48px;
+            text-shadow: 2px 2px 0 #000;
+            display: inline-block;
+        }
+
+        h2 {
+            font-size: 16px;
+            line-height: 32px;
+            font-weight: normal;
+            clear: both;
+            position: relative;
+            z-index: 1;
+            margin-top: 8px;
+        }
+
+        h3 {
+            font-size: 14px;
+            line-height: 28px;
+            font-weight: normal;
+        }
+
+        .settings ul {
+            border-bottom: 1px dashed #333;
+            padding-top: 8px;
+        }
+
+        li {
+            font-size: 14px;
+            line-height: 18px;
+        }
+
+        footer {
+            margin-top: 15px;
+        }
+
+        .changelog > li {
+            margin-bottom: 5px;
+        }
+
+        .keys b {
+            display: block;
+            font-weight: normal;
+            color: #000;
+            float: right;
+        }
+
+        .keys span {
+            display: block;
+            float: left;
+            clear: left;
+        }
+
+        .keys li {
+            margin-bottom: 5px;
+            clear: left;
+        }
+
+        .wrapper {
+            position: relative;
+            padding: 0 15px;
+            transition: all .2s ease;
+        }
+
+        .author {
+            text-align: left;
+        }
+
+        header {
+            position: relative;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        a:focus { outline: none;}
+
+        footer {
+            margin: 32px 0 10px;
+        }
+
+        footer p {
+            float: left;
+            line-height: 48px;
+            margin: 0;
+        }
+
+        footer:after {
+            clear: both;
+            float: none;
+            display: block;
+            content: ""
+        }
+
+        .gitlink {
+            float: right;
+            line-height: 48px;
+            font-size: 14px;
+        }
+
+        .gitlink img {
+            width: 48px;
+            height: 48px;
+            vertical-align: middle;
+        }
+
+        .settings {
+            margin-top: 8px;
+            padding-top: 0;
+        }
+
+        .settings li {
+            clear: both;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .settings label {
+            float: left;
+            clear: left;
+        }
+
+        .settings input, .settings select {
+            float: right;
+        }
+
+        body {
+            color: #000;
+            text-shadow: 1px 1px 3px #000;
+        }
+
+        body .wrapper {
+            color: #eee;
+        }
+
+        body .wrapper:before {
+            background-color: #0a0a0a;
+            background-image: linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000),
+                linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000);
+        }
+
+        body .keys b {
+            color: #fff;
+        }
+
+        .title-subtext {
+            clear: both;
+            font-size: 12px;
+        }
+
+        iframe {
+            position: fixed;
+            width: 100%;
+            height: 105%;
+            z-index: -1;
+            left: 0;
+            top: -2.5%;
+            pointer-events: none;
+        }
+
+        .beer {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .beer a {
+            background: greenyellow;
+            color: #000;
+            padding: 3px 6px;
+            border-radius: 5px;
+            text-decoration: none;
+            text-shadow: none;
+            font-weight: bold;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <iframe frameborder="0" src="https://www.shadertoy.com/embed/ms23RW?gui=false&t=10&paused=false&muted=true"></iframe>
+        <section class="settings">
+            <ul>
+                <li title="Use GPT4 (More expensive, smarter) [Off = Use GPT-3.5]">
+                    <label>Use GPT4</label>
+                    <input type="checkbox" id="input-use-gpt4"/>
+                </li>
+                <li title="API Key from your user settings panel in OpenAI, used for billing">
+                    <label>OpenAI Key</label>
+                    <input id="input-openai-key"/>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h2>In the Code Editor...</h2>
+            <ul class="keys">
+
+                <li>
+                    <span>Code Completion</span><b>CTRL + M</b>
+                </li>
+                <li>
+                    <span>Color Picker</span><b>Cursor on vec3 with r,g,b</b>
+                </li>
+            </ul>
+            <p>On OSX use CMD instead of ALT.</p>
+        </section>
+        <div class="beer">
+            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VDFNBT9N3ANHW&source=url">
+                Beer? Send it to patuwwy!
+            </a>
+        </div>
+        <footer>
+            <p id="version" class="version">version</p>
+            <a class="gitlink" target="_blank" href="https://github.com/kylegrover/shadertoy-buddy">Read more, report bugs: <img src="assets/github-10-xxl.png"/></a>
+        </footer>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
