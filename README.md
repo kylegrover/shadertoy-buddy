@@ -2,6 +2,24 @@
 
 **WebExtension** for **Shadertoy** to help you code using GPT and other misc tools.
 
+## 🚨 INCOMPLETE / WIP 🚨
+
+#### To Do: 
+- [ ] Fix state storage/loading
+- [ ] Connect Prompt input to prompt execution
+- [ ] Conversational mode (ask questions about code, get answers)
+- [ ] Edit mode (give prompt, code gets edited)
+- [ ] Move prompt handling / ai to separate function/class
+- [ ] Add default helpful prompts
+    - "Fix any errors in the code"
+    - "Explain"/"Add comments"
+    - "Make verbose / ungolf"
+    - "Make concise"
+    - "Add a random new feature"
+- [ ] Add system to store and reuse prompts
+    - customize existing prompts, hide defaults, manage custom prompts
+
+
 # Installing:
 
 ## Stores: 
