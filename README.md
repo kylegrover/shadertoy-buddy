@@ -5,9 +5,10 @@
 ## 🚨 INCOMPLETE / WIP 🚨
 
 #### To Do: 
-- [ ] Fix state storage/loading
-- [ ] Connect Prompt input to prompt execution
-- [ ] Conversational mode (ask questions about code, get answers)
+- [x] Fix state storage/loading
+- [x] Connect Prompt input to prompt execution
+- [x] Conversational mode (ask questions about code, get answers)
+    - [ ] Create better interface for responses than the console
 - [ ] Edit mode (give prompt, code gets edited)
 - [ ] Move prompt handling / ai to separate function/class
 - [ ] Add default helpful prompts
@@ -24,11 +25,11 @@
 
 ## Stores: 
 
-[Chrome extension](https://chrome.google.com/webstore/detail/...)
+[Chrome extension not available yet](#)
 
 ## Manual installation
 
-Download latest **zip** from [Releases](https://github.com/patuwwy/ShaderToy-Chrome-Plugin/releases)
+Download latest **zip** from [Releases](https://github.com/kylegrover/shadertoy-buddy/releases)
 
 ## Google Chrome
 1. Download the extension from the provided link and unzip it.
