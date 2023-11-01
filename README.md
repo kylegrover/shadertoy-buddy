@@ -62,4 +62,4 @@ Download latest **zip** from [Releases](https://github.com/kylegrover/shadertoy-
 
 ## Contributors:
 
-Plugin framework based on [Shadertoy unofficial plugin.](https://github.com/...) by [PatrykFalba (Patu)](http://patrykfalba.pl)
+Plugin framework based on [Shadertoy unofficial plugin.](https://github.com/patuwwy/ShaderToy-Chrome-Plugin) by [PatrykFalba (Patu)](http://patrykfalba.pl)
