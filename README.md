@@ -62,11 +62,4 @@ Download latest **zip** from [Releases](https://github.com/kylegrover/shadertoy-
 
 ## Contributors:
 
-[movAX13h](http://blog.thrill-project.com/)
-
-[cxw42](https://github.com/cxw42)
-
-[Ethan Lowenthal](https://ethansawesomewebsite.tk/)
-
-Plugin framework based on [Shadertoy unofficial plugin.](https://github.com/...) by 
-[PatrykFalba (Patu)](http://patrykfalba.pl)
+Plugin framework based on [Shadertoy unofficial plugin.](https://github.com/...) by [PatrykFalba (Patu)](http://patrykfalba.pl)
