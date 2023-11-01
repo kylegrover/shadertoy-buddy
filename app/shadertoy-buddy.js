@@ -297,7 +297,7 @@
 
         onButtonClick(event) {
             // run prompt
-            const prompt = this.input.value;
+            const prompt = this.input.value+"\n\n"+gShaderToy.mCodeEditor.getValue();
             const temperature = 0.7;
             const maxTokens = 256;
             var myHeaders = new Headers();
