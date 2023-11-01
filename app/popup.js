@@ -1,7 +1,7 @@
 class Popup {
     constructor() {
-        this.bindRenderModeSelect();
-        this.bindAlternateProfileInput();
+        this.bindApiKeyInput();
+        this.bindUseGPT4();
 
         this.init();
     }
@@ -43,6 +43,9 @@ class Popup {
                     }
                 });
             });
+    }
+
+    bindApiKeyInput() {
         document
             .getElementById('input-openai-key')
             .addEventListener('change', (event) => {

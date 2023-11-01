@@ -90,19 +90,11 @@
             }
 
             this.setListener();
-
-            if (this.state && this.state.openaiKey) {
-                this.setOpenaiKey(this.state.openaiKey);
-            }
         }
 
         setListener() {
             document.addEventListener('STB:mainState:updated', (event) => {
                 const detail = event.detail;
-
-                if (detail && detail.openaiKey) {
-                    this.setOpenaiKey(detail.openaiKey);
-                }
             });
         }
     }
@@ -314,7 +306,7 @@
             
             var raw = JSON.stringify({
               "model": window.ToyBuddy.state.model,
-              "messages": [{"role": "user", "content": "Microphone check 1 2 what is this"}],
+              "messages": [{"role": "user", "content": prompt}],
               "temperature": 0.7
             });
             
@@ -327,7 +319,12 @@
             
             fetch("https://api.openai.com/v1/chat/completions", requestOptions)
               .then(response => response.text())
-              .then(result => console.log(result))
+              .then(result => {
+                const response = JSON.parse(result);
+                console.log(response);
+                const text = response.choices[0].message.content;
+                console.log(text);
+              })
               .catch(error => console.log('error', error));
 
             event.stopPropagation();
