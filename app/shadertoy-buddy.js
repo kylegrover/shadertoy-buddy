@@ -268,6 +268,7 @@
     class PromptInput {
         constructor() {
             this.addInput();
+            this.addModeSelect();
             this.addButton();
         }
 
@@ -278,6 +279,17 @@
             // this.input.addEventListener('change', (event) => {
 
             extensionElements.promptContainer.appendChild(this.input);
+        }
+
+        addModeSelect() {
+            // choose between append and replace ("edit" and "comment")
+            this.modeSelect = document.createElement('select');
+            this.modeSelect.classList.add('stb-prompt-mode-select');
+            this.modeSelect.setAttribute('title', 'Choose mode');
+            this.modeSelect.innerHTML = `<option value="append">Add Comment</option>`;
+            this.modeSelect.innerHTML += `<option value="replace">Edit Code</option>`;
+            
+            extensionElements.promptContainer.appendChild(this.modeSelect);
         }
 
         addButton() {
@@ -316,18 +328,37 @@
               body: raw,
               redirect: 'follow'
             };
+
+            const shouldUpdate = this.modeSelect.value == "replace";
+
+            this.button.textContent = 'Running...'
+            this.button.disabled = true;
             
             fetch("https://api.openai.com/v1/chat/completions", requestOptions)
               .then(response => response.text())
-              .then(result => {
-                const response = JSON.parse(result);
-                console.log(response);
-                const text = response.choices[0].message.content;
-                console.log(text);
-              })
-              .catch(error => console.log('error', error));
+              .then(result => this.handleResult(result, shouldUpdate))
+              .catch(error => console.log('error', error))
+              .finally(() => {
+                this.button.textContent = 'Run prompt'
+                this.button.disabled = false;
+              });
 
             event.stopPropagation();
+        }
+
+        handleResult(result, updateCode = false) {
+            const response = JSON.parse(result);
+            if (response.choices.length == 0) {
+                console.error("Bad/No response from GPT", response);
+                return;
+            }
+            const prompt = response.choices[0].prompt;
+            const text = response.choices[0].message.content;
+            console.log(text);
+            if (updateCode)
+                gShaderToy.mCodeEditor.setValue(text);
+            else
+                gShaderToy.mCodeEditor.setValue(gShaderToy.mCodeEditor.getValue() + "\n\n/*\n"+text+"\n*/");
         }
     }
 

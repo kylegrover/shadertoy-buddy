@@ -122,7 +122,7 @@ body div#header {
     flex: 1;
     line-height: 1.5;
     padding: 0.25em 0.5em;
-    margin-right: 0.5em;
+    /* margin-right: 0.5em; */
 }
 .toybuddy-prompt-container .formButton {
     min-width: auto;
@@ -130,4 +130,12 @@ body div#header {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.toybuddy-prompt-container .stb-prompt-mode-select {
+    flex: 0 0 min-content;
+    background: #aaa;
+    margin-right: 0.5em;
+    border: 1px solid #777;
+    border-radius: 2px;
 }
