@@ -1,0 +1,5 @@
+Rewrite this shader to include comments that help to explain what each portion does.
+Avoid writing superfluous comments that just restate what a line of code does.
+The comments should explain why the code is there, and what it does in the context of the shader.
+Respond with only the shader. No extra commentary or formatting is required, just start and end with the rewritten shader code.
+Do not modify the shader in any other way, just add comments.
