@@ -11,16 +11,19 @@
     - [x] Create better interface for responses than the console
 - [x] Edit mode (give prompt, code gets edited)
 - [x] System prompt
-- [ ] Move prompt handling / ai to separate function/class
+- [~] Move prompt handling / ai to separate function/class
+    - function started, but not yet implemented
 - [ ] Add default helpful prompts
     - "Fix any errors in the code"
     - "Explain"/"Add comments"
     - "Make verbose / ungolf"
     - "Make concise"
     - "Add a random new feature"
+    - [~] Write and test prompts
+    - [ ] Add UI to trigger prompts
 - [ ] Add system to store and reuse prompts
     - customize existing prompts, hide defaults, manage custom prompts
-- [ ] error handling (ie low funds, bad key, failed request)
+- [x] error handling (ie low funds, bad key, failed request)
 
 
 # Installing:
