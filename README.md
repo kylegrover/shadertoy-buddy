@@ -24,6 +24,7 @@
 - [ ] Add system to store and reuse prompts
     - customize existing prompts, hide defaults, manage custom prompts
 - [x] error handling (ie low funds, bad key, failed request)
+- [ ] disable button if openai key missing, replace input prompt with link to extension window or something along those lines
 
 
 # Installing:
