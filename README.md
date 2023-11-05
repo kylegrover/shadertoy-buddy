@@ -20,6 +20,7 @@
     - "Add a random new feature"
 - [ ] Add system to store and reuse prompts
     - customize existing prompts, hide defaults, manage custom prompts
+- [ ] error handling (ie low funds, bad key, failed request)
 
 
 # Installing:
