@@ -1,6 +1,6 @@
 ## [0.0.5] - 2023-11-05
 
-System prompt with default value and menu to customize it.
+System prompt with default value and clearer error handling.
 
 ## [0.0.4] - 2023-11-04
 
