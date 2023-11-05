@@ -8,8 +8,9 @@
 - [x] Fix state storage/loading
 - [x] Connect Prompt input to prompt execution
 - [x] Conversational mode (ask questions about code, get answers)
-    - [ ] Create better interface for responses than the console
-- [ ] Edit mode (give prompt, code gets edited)
+    - [x] Create better interface for responses than the console
+- [x] Edit mode (give prompt, code gets edited)
+- [x] System prompt
 - [ ] Move prompt handling / ai to separate function/class
 - [ ] Add default helpful prompts
     - "Fix any errors in the code"
@@ -52,7 +53,10 @@ Download latest **zip** from [Releases](https://github.com/kylegrover/shadertoy-
 
 ## Features:
 
-- **GPT code completion** using your api key and model preference
+- **Ask GPT About Your Code** using your api key, model, and system prompt preference
+- **Edit Your Code** using GPT to generate a new code block
+- ~~**Agent Mode**~~ (not yet implemented)
+- ~~**Shadertoy VectorDB Search**~~ (not yet implemented - would require a server to host the vector database, might require payment)
 
 ---
 

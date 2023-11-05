@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "UFFFD's Shadertoy Buddy",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "Shadertoy.com unofficial plugin.",
     "homepage_url": "https://github.com/kylegrover/shadertoy-buddy",
     "background": {
@@ -29,7 +29,8 @@
         {
             "resources": [
                 "popup.js",
-                "shadertoy-buddy.js"
+                "shadertoy-buddy.js",
+                "prompts/*"
             ],
             "matches": ["https://www.shadertoy.com/*"]
         }

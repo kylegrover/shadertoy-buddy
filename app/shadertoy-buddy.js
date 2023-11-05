@@ -223,38 +223,6 @@
                 // }
             });
         }
-
-        /**
-         * Create the UI controls to query GPT with a prompt + your shader
-         */
-        promptPlusShader(prompt) {
-            var container =
-                    document.getElementById('shaderPublished') ||
-                    document.getElementById('shaderButtons'),
-                download = document.createElement('div');
-
-            download.classList.add('formButton');
-            download.classList.add('formButton-extension');
-            download.textContent = 'Export';
-
-            extensionElements.controlsContainerFooter.appendChild(download);
-
-            download.addEventListener(
-                'click',
-                function onDownloadButtonClick() {
-                    var name = gShaderToy.mInfo.id;
-
-                    if (name === '-1') {
-                        name = 'default';
-                    }
-
-                    window.ToyBuddy.common.downloadJson(
-                        name + '.json',
-                        JSON.stringify(gShaderToy.Save())
-                    );
-                }
-            );
-        }
         
 
         runPrompt() {
@@ -263,6 +231,43 @@
 
             // gShaderToy.Load(JSON.parse(text, true));
         }
+    }
+
+    function runPrompt(prompt, handleResult=()=>{console.log('no handleResult set')}, callback=()=>{console.log('no callback set')}, temperature=0.7, maxTokens=256) {// run prompt
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append("Authorization", `Bearer `+window.ToyBuddy.state.openaiKey);
+
+        const system_msg = {"role": "system", "content": sys_prompt};
+        var prompt_msg;
+        if (typeof prompt === 'string')
+            prompt_msg = {"role": "user", "content": prompt};
+        else if (typeof prompt === 'object')
+            prompt_msg = prompt;
+        else
+            console.error("Bad prompt type", typeof prompt, prompt);
+        
+        var raw = JSON.stringify({
+          "model": window.ToyBuddy.state.model,
+          "messages": [system_msg, prompt_msg],
+          "temperature": 0.7
+        });
+        
+        var requestOptions = {
+          method: 'POST',
+          headers: myHeaders,
+          body: raw,
+          redirect: 'follow'
+        };
+        
+        fetch("https://api.openai.com/v1/chat/completions", requestOptions)
+          .then(response => response.text())
+          .then(result => handleResult(result))
+          .catch(error => {
+            console.log('error', error)
+            alert("Error: "+error)
+          })
+          .finally(callback);
     }
 
     class PromptInput {
@@ -315,10 +320,13 @@
             var myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/json");
             myHeaders.append("Authorization", `Bearer `+window.ToyBuddy.state.openaiKey);
+
+            const system_msg = {"role": "system", "content": window.ToyBuddy.state.systemPrompt};
+            const prompt_msg = {"role": "user", "content": prompt};
             
             var raw = JSON.stringify({
               "model": window.ToyBuddy.state.model,
-              "messages": [{"role": "user", "content": prompt}],
+              "messages": [system_msg, prompt_msg],
               "temperature": 0.7
             });
             
@@ -348,8 +356,10 @@
 
         handleResult(result, updateCode = false) {
             const response = JSON.parse(result);
-            if (response.choices.length == 0) {
+            console.log(response)
+            if (!response.choices || response.choices.length == 0) {
                 console.error("Bad/No response from GPT", response);
+                throw "Bad/No response from GPT";
                 return;
             }
             const prompt = response.choices[0].prompt;

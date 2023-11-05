@@ -10,8 +10,18 @@
         STATE_STORAGE_KEY = 'STB-state',
         state = {
             model: 'gpt-3.5-turbo',
-            openaiKey: ''
+            openaiKey: '',
+            systemPrompt: false, // load from prompts/system-shadertoy-pro.txt
         };
+
+    function loadDefaultSystemPrompt() {
+        fetch(chrome.runtime.getURL('prompts/system-shadertoy-pro.txt'))
+            .then(response => response.text())
+            .then(text => {
+                state.systemPrompt = text;
+                saveState(state);
+            });
+    }
 
     /**
      * Load a script directly from our extension.  The script should be
@@ -42,6 +52,9 @@
                 state = JSON.parse(storedState);
             } catch (_ignore) {}
         }
+
+        if (!state.systemPrompt) 
+            loadDefaultSystemPrompt();
 
         onStateUpdate(state);
     };
