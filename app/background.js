@@ -14,7 +14,7 @@
     chrome.runtime.onInstalled.addListener(function(d) {
         if (d.reason === 'install') {
             chrome.tabs.create({
-                url: 'https://github.com/kylegrover/shadertoy-buddy/blob/main/CHANGELOG.md'
+                url: 'https://github.com/kylegrover/shadertoy-buddy/blob/master/CHANGELOG.md'
             });
         }
     });
