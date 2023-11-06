@@ -14,7 +14,7 @@ class Popup {
             (response) => {
                 console.log(response);
                 document.getElementById('input-use-gpt4').checked =
-                    response.model === 'gpt-4'
+                    response.model === 'gpt-4-1106-preview'
                 document.getElementById('input-openai-key').value =
                     response.openaiKey
             }
@@ -39,7 +39,7 @@ class Popup {
             .addEventListener('change', (event) => {
                 this.sendMessage({
                     set: {
-                        model: event.target.checked ? 'gpt-4' : 'gpt-3.5-turbo'
+                        model: event.target.checked ? 'gpt-4-1106-preview' : 'gpt-3.5-turbo'
                     }
                 });
             });
