@@ -1,1 +1,0 @@
-this doesn't use any user data literally at all this file is a dumbfuck requirement for chrome extension store
