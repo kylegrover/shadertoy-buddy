@@ -1,3 +1,9 @@
+## [0.0.7] - 2023-11-09
+
+https://github.com/kylegrover/shadertoy-buddy/releases/tag/v0.0.6-beta
+
+Implement system prompt in menu and functionality.
+
 ## [0.0.6] - 2023-11-09
 
 https://github.com/kylegrover/shadertoy-buddy/releases/tag/v0.0.6-beta

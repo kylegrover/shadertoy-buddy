@@ -223,22 +223,21 @@
                 // }
             });
         }
-        
-
-        runPrompt() {
-            var container = document.getElementById('shaderPublished'),
-                upload = document.createElement('div');
-
-            // gShaderToy.Load(JSON.parse(text, true));
-        }
     }
 
-    function runPrompt(prompt, handleResult=()=>{console.log('no handleResult set')}, callback=()=>{console.log('no callback set')}, temperature=0.7, maxTokens=256) {// run prompt
+    function runPrompt(
+        prompt, 
+        handleResult=()=>{console.log('no handleResult set')}, 
+        callback=()=>{console.log('no callback set')}, 
+        temperature=0.7, maxTokens=256, 
+        system_prompt=window.ToyBuddy.state.systemPrompt
+    ) {// run prompt
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         myHeaders.append("Authorization", `Bearer `+window.ToyBuddy.state.openaiKey);
 
-        const system_msg = {"role": "system", "content": sys_prompt};
+        const system_msg = {"role": "system", "content": system_prompt}
+
         var prompt_msg;
         if (typeof prompt === 'string')
             prompt_msg = {"role": "user", "content": prompt};
@@ -315,41 +314,19 @@
         onButtonClick(event) {
             // run prompt
             const prompt = this.input.value+"\n\n"+gShaderToy.mCodeEditor.getValue();
-            const temperature = 0.7;
-            const maxTokens = 256;
-            var myHeaders = new Headers();
-            myHeaders.append("Content-Type", "application/json");
-            myHeaders.append("Authorization", `Bearer `+window.ToyBuddy.state.openaiKey);
-
-            const system_msg = {"role": "system", "content": window.ToyBuddy.state.systemPrompt};
-            const prompt_msg = {"role": "user", "content": prompt};
-            
-            var raw = JSON.stringify({
-              "model": window.ToyBuddy.state.model,
-              "messages": [system_msg, prompt_msg],
-              "temperature": 0.7
-            });
-            
-            var requestOptions = {
-              method: 'POST',
-              headers: myHeaders,
-              body: raw,
-              redirect: 'follow'
-            };
 
             const shouldUpdate = this.modeSelect.value == "replace";
-
             this.button.textContent = 'Running...'
             this.button.disabled = true;
-            
-            fetch("https://api.openai.com/v1/chat/completions", requestOptions)
-              .then(response => response.text())
-              .then(result => this.handleResult(result, shouldUpdate))
-              .catch(error => console.log('error', error))
-              .finally(() => {
-                this.button.textContent = 'Run prompt'
-                this.button.disabled = false;
-              });
+
+            runPrompt(
+                prompt, 
+                (result) => this.handleResult(result), 
+                () => {
+                    this.button.textContent = 'Run prompt'; 
+                    this.button.disabled = false;
+                }
+            );
 
             event.stopPropagation();
         }

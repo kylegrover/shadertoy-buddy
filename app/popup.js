@@ -2,6 +2,7 @@ class Popup {
     constructor() {
         this.bindApiKeyInput();
         this.bindUseGPT4();
+        this.bindSystemPrompt();
 
         this.init();
     }
@@ -17,6 +18,8 @@ class Popup {
                     response.model === 'gpt-4-1106-preview'
                 document.getElementById('input-openai-key').value =
                     response.openaiKey
+                document.getElementById('input-system-prompt').value =
+                    response.systemPrompt
             }
         );
 
@@ -52,6 +55,18 @@ class Popup {
                 this.sendMessage({
                     set: {
                         openaiKey: event.target.value
+                    }
+                });
+            });
+    }
+
+    bindSystemPrompt() {
+        document
+            .getElementById('input-system-prompt')
+            .addEventListener('change', (event) => {
+                this.sendMessage({
+                    set: {
+                        systemPrompt: event.target.value
                     }
                 });
             });
