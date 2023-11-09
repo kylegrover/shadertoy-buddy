@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "UFFFD's Shadertoy Buddy",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "Shadertoy.com code assistance using GPT",
     "homepage_url": "https://github.com/kylegrover/shadertoy-buddy",
     "background": {
