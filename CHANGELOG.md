@@ -1,3 +1,9 @@
+## [0.0.6] - 2023-11-09
+
+https://github.com/kylegrover/shadertoy-buddy/releases/tag/v0.0.6-beta
+
+Added GPT-4 Turbo and published to chrome extension store.
+
 ## [0.0.5] - 2023-11-05
 
 https://github.com/kylegrover/shadertoy-buddy/releases/tag/v0.0.5-alpha
