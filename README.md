@@ -33,7 +33,7 @@
 
 ## Stores: 
 
-[Chrome extension not available yet](#)
+[Chrome](https://chromewebstore.google.com/u/1/detail/ufffds-shadertoy-buddy/kelehbbdpaochlhjonmfhjancdnlhhgc?hl=en)
 
 ## Manual installation
 
